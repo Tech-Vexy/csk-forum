@@ -403,7 +403,7 @@ export default function App() {
       }
       if (cmd === 'profile') {
         const target = args[0] || username;
-        socketRef.current.send(JSON.stringify({
+        if (socketRef.current?.readyState === WebSocket.OPEN) socketRef.current.send(JSON.stringify({
           type: 'send_message',
           channelId: activeChannelId,
           content: `/finger ${target}`,
@@ -421,7 +421,7 @@ export default function App() {
             timestamp: new Date().toISOString(), isBot: true
           }]);
         } else {
-          socketRef.current.send(JSON.stringify({
+          if (socketRef.current?.readyState === WebSocket.OPEN) socketRef.current.send(JSON.stringify({
             type: 'update_profile',
             bio: newBio
           }));
@@ -432,7 +432,7 @@ export default function App() {
       if (cmd === 'status') {
         const newStatus = args[0] as 'online' | 'away';
         if (['online', 'away'].includes(newStatus)) {
-          socketRef.current.send(JSON.stringify({
+          if (socketRef.current?.readyState === WebSocket.OPEN) socketRef.current.send(JSON.stringify({
             type: 'set_status',
             status: newStatus
           }));
@@ -486,7 +486,7 @@ export default function App() {
         }
         const url = args[0];
         const isLive = !!url && url.toLowerCase() !== 'off';
-        socketRef.current?.send(JSON.stringify({
+        if (socketRef.current?.readyState === WebSocket.OPEN) socketRef.current.send(JSON.stringify({
           type: 'update_stream',
           channelId: activeChannelId,
           isLive,
@@ -515,14 +515,14 @@ export default function App() {
     setHistoryIndex(-1);
 
     if (activeDmUsername) {
-      socketRef.current.send(JSON.stringify({
+      if (socketRef.current?.readyState === WebSocket.OPEN) socketRef.current.send(JSON.stringify({
         type: 'send_message',
         channelId: activeChannelId || 'dm',
         content: `/msg ${activeDmUsername} ${inputMessage}`,
         username
       }));
     } else {
-      socketRef.current.send(JSON.stringify({
+      if (socketRef.current?.readyState === WebSocket.OPEN) socketRef.current.send(JSON.stringify({
         type: 'send_message',
         channelId: activeChannelId,
         content: inputMessage,
@@ -586,7 +586,7 @@ export default function App() {
 
   const sendTypingStatus = (isTyping: boolean) => {
     if (!socketRef.current || !activeChannelId) return;
-    socketRef.current.send(JSON.stringify({
+    if (socketRef.current?.readyState === WebSocket.OPEN) socketRef.current.send(JSON.stringify({
       type: 'typing',
       channelId: activeChannelId,
       username,
@@ -862,7 +862,7 @@ export default function App() {
 
                     <div className="flex-1 min-w-0 flex items-start gap-2 pt-0.5">
                       <span className="font-bold text-[14px] text-terminal-green shrink-0 whitespace-nowrap cursor-pointer hover:underline uppercase tracking-tighter" onClick={() => {
-                        socketRef.current?.send(JSON.stringify({
+                        if (socketRef.current?.readyState === WebSocket.OPEN) socketRef.current.send(JSON.stringify({
                           type: 'send_message',
                           channelId: activeChannelId,
                           content: `/finger ${msg.username}`,
