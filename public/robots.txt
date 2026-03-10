@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kirinyaga-cs-forum.vercel.app/sitemap.xml

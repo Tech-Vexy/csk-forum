@@ -1,0 +1,33 @@
+node_modules/@google/genai/dist/genai.d.ts(3,29): error TS2307: Cannot find module '@modelcontextprotocol/sdk/client/index.js' or its corresponding type declarations.
+node_modules/gaxios/build/cjs/src/gaxios.d.ts(16,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+node_modules/google-auth-library/build/src/auth/awsclient.d.ts(83,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+node_modules/google-auth-library/build/src/auth/baseexternalclient.d.ts(173,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+node_modules/google-auth-library/build/src/auth/googleauth.d.ts(159,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+node_modules/google-auth-library/build/src/auth/oauth2common.d.ts(50,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+node_modules/google-auth-library/build/src/auth/stscredentials.d.ts(99,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+node_modules/google-auth-library/build/src/util.d.ts(125,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+node_modules/vite/dist/node/index.d.ts(5,41): error TS2307: Cannot find module 'rollup/parseAst' or its corresponding type declarations.
+  There are types at 'C:/Users/Admin/Downloads/kirinyaga-cs-forum/node_modules/rollup/dist/parseAst.d.ts', but this result could not be resolved under your current 'moduleResolution' setting. Consider updating to 'node16', 'nodenext', or 'bundler'.
+server.ts(1,8): error TS1259: Module '"C:/Users/Admin/Downloads/kirinyaga-cs-forum/node_modules/@types/express/index"' can only be default-imported using the 'esModuleInterop' flag
+server.ts(5,8): error TS1259: Module '"path"' can only be default-imported using the 'esModuleInterop' flag
+server.ts(6,8): error TS1192: Module '"fs"' has no default export.
+server.ts(12,8): error TS1192: Module '"C:/Users/Admin/Downloads/kirinyaga-cs-forum/node_modules/dotenv/lib/main"' has no default export.
+server.ts(180,10): error TS2304: Cannot find name 'ai'.
+server.ts(191,30): error TS2304: Cannot find name 'ai'.
+server.ts(239,24): error TS1308: 'await' expressions are only allowed within async functions and at the top levels of modules.
+server.ts(246,15): error TS1308: 'await' expressions are only allowed within async functions and at the top levels of modules.
+server.ts(249,15): error TS1308: 'await' expressions are only allowed within async functions and at the top levels of modules.
+server.ts(256,38): error TS1308: 'await' expressions are only allowed within async functions and at the top levels of modules.
+server.ts(269,15): error TS1308: 'await' expressions are only allowed within async functions and at the top levels of modules.
+server.ts(311,28): error TS1308: 'await' expressions are only allowed within async functions and at the top levels of modules.
+server.ts(350,28): error TS1308: 'await' expressions are only allowed within async functions and at the top levels of modules.
+server.ts(366,17): error TS1308: 'await' expressions are only allowed within async functions and at the top levels of modules.
+server.ts(368,34): error TS1308: 'await' expressions are only allowed within async functions and at the top levels of modules.
+server.ts(369,31): error TS1308: 'await' expressions are only allowed within async functions and at the top levels of modules.
+server.ts(381,37): error TS1308: 'await' expressions are only allowed within async functions and at the top levels of modules.
+server.ts(401,11): error TS1308: 'await' expressions are only allowed within async functions and at the top levels of modules.
+server.ts(410,13): error TS1308: 'await' expressions are only allowed within async functions and at the top levels of modules.
+server.ts(416,33): error TS1308: 'await' expressions are only allowed within async functions and at the top levels of modules.
+server.ts(429,28): error TS1308: 'await' expressions are only allowed within async functions and at the top levels of modules.
+server.ts(430,28): error TS1308: 'await' expressions are only allowed within async functions and at the top levels of modules.
+server.ts(431,25): error TS1308: 'await' expressions are only allowed within async functions and at the top levels of modules.

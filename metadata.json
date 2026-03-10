@@ -1,0 +1,5 @@
+{
+  "name": "Kirinyaga CS Forum",
+  "description": "A real-time IRC-style communication platform for the Computer Society of Kirinyaga. Supports GitHub SSH-style authentication.",
+  "requestFramePermissions": []
+}
