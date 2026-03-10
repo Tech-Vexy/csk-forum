@@ -16,15 +16,15 @@ export default defineConfig(({ mode }) => {
           name: 'Kirinyaga CS Forum',
           short_name: 'KirinyagaCS',
           description: 'Premium tech forum and community hub for Kirinyaga.',
-          theme_color: '#3b82f6',
+          theme_color: '#00ff41',
           icons: [
             {
-              src: 'icons/icon-192x192.png',
+              src: 'icons/android-chrome-192x192.png',
               sizes: '192x192',
               type: 'image/png'
             },
             {
-              src: 'icons/icon-512x512.png',
+              src: 'icons/android-chrome-512x512.png',
               sizes: '512x512',
               type: 'image/png'
             }
