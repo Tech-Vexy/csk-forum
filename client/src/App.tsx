@@ -277,7 +277,7 @@ export default function App() {
 
   const handleGithubLogin = async () => {
     try {
-      const baseUrl = import.meta.env.VITE_API_BASE_URL || '';
+      const baseUrl = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/+$/, '');
       const response = await fetch(`${baseUrl}/api/auth/github/url`);
       const { url } = await response.json();
       window.open(url, 'github_oauth', 'width=600,height=700');
@@ -288,7 +288,7 @@ export default function App() {
 
   useEffect(() => {
     if (isLoggedIn) {
-      const wsBaseUrl = import.meta.env.VITE_WS_BASE_URL;
+      const wsBaseUrl = (import.meta.env.VITE_WS_BASE_URL || '').replace(/\/+$/, '');
       let socket: WebSocket;
 
       if (wsBaseUrl) {
