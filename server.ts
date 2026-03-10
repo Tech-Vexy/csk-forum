@@ -10,6 +10,7 @@ import { GoogleGenAI } from "@google/genai";
 import { fileURLToPath } from 'url';
 import axios from "axios";
 import * as dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config();
 
@@ -110,6 +111,7 @@ async function startServer() {
   const PORT = 3000;
 
   app.use(express.json());
+  app.use(cors());
 
   // GitHub OAuth
   app.get('/api/auth/github/url', (req, res) => {

@@ -277,7 +277,8 @@ export default function App() {
 
   const handleGithubLogin = async () => {
     try {
-      const response = await fetch('/api/auth/github/url');
+      const baseUrl = import.meta.env.VITE_API_BASE_URL || '';
+      const response = await fetch(`${baseUrl}/api/auth/github/url`);
       const { url } = await response.json();
       window.open(url, 'github_oauth', 'width=600,height=700');
     } catch (err) {
@@ -287,8 +288,16 @@ export default function App() {
 
   useEffect(() => {
     if (isLoggedIn) {
-      const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-      const socket = new WebSocket(`${protocol}//${window.location.host}/ws`);
+      const wsBaseUrl = import.meta.env.VITE_WS_BASE_URL;
+      let socket: WebSocket;
+
+      if (wsBaseUrl) {
+        socket = new WebSocket(`${wsBaseUrl}/ws`);
+      } else {
+        const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+        socket = new WebSocket(`${protocol}//${window.location.host}/ws`);
+      }
+
       socketRef.current = socket;
 
       socket.onopen = () => {
