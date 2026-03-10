@@ -247,7 +247,7 @@ export default function App() {
 
   const socketRef = useRef<WebSocket | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const typingTimeoutRef = useRef<any>(null);
 
   useEffect(() => {
     // Initial boot sequence
