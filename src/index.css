@@ -11,6 +11,15 @@
   --color-terminal-amber: #ffb000;
   --color-terminal-text: var(--color-terminal-green);
   --color-terminal-border: var(--color-terminal-green-dim);
+
+  --shadow-terminal: 0 0 10px rgba(0, 143, 17, 0.3);
+  --shadow-terminal-glow: 0 0 20px rgba(0, 255, 65, 0.1);
+  --shadow-terminal-heavy: 0 0 40px rgba(0, 255, 65, 0.2);
+  --shadow-terminal-inner: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  --shadow-terminal-side: 10px 0 30px rgba(0, 0, 0, 0.5);
+  --shadow-terminal-avatar: 0 0 15px rgba(0, 255, 65, 0.4);
+  --shadow-terminal-green: 0 0 8px var(--color-terminal-green);
+  --shadow-terminal-amber: 0 0 8px var(--color-terminal-amber);
 }
 
 @layer base {
@@ -140,7 +149,7 @@
   }
 
   .terminal-border {
-    @apply border border-terminal-green-dim shadow-[0_0_10px_rgba(0, 143, 17, 0.3)];
+    @apply border border-terminal-green-dim shadow-terminal;
   }
 
   .terminal-input {

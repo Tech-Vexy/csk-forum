@@ -149,7 +149,7 @@ const NavContent = ({
                 )}
                 <div className={cn(
                   "absolute -bottom-0.5 -right-0.5 w-1.5 h-1.5 rounded-full",
-                  user.status === 'online' ? "bg-terminal-green shadow-[0_0_5px_var(--color-terminal-green)]" : "bg-terminal-green-dim opacity-50"
+                  user.status === 'online' ? "bg-terminal-green shadow-terminal-green" : "bg-terminal-green-dim opacity-50"
                 )} />
               </div>
               <span className="truncate uppercase tracking-tighter">[{user.username}]</span>
@@ -634,12 +634,17 @@ export default function App() {
           animate={{ opacity: 1, scale: 1 }}
           className="w-full max-w-md bg-zinc-950 border border-zinc-800 shadow-xl rounded-xl overflow-hidden"
         >
-          <div className="p-8 text-center border-b border-zinc-800">
-            <div className="w-16 h-16 bg-blue-900/40 text-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-              <MessageSquare size={32} />
+          <div className="p-8 text-center border-b border-terminal-green-dim/20">
+            <div className="w-20 h-20 flex items-center justify-center mx-auto mb-6 relative group">
+              <div className="absolute inset-0 bg-terminal-green/20 rounded-full blur-xl group-hover:bg-terminal-green/30 transition-all"></div>
+              <img
+                src="/icons/android-chrome-192x192.png"
+                alt="Kirinyaga CS Logo"
+                className="w-16 h-16 relative z-10 drop-shadow-terminal-avatar grayscale brightness-110 contrast-125"
+              />
             </div>
-            <h1 className="text-2xl font-bold text-zinc-100 mb-2">Kirinyaga CS</h1>
-            <p className="text-zinc-400 text-sm">Join the community IRC network</p>
+            <h1 className="text-2xl font-black text-terminal-green mb-2 glow-text uppercase tracking-tighter">Kirinyaga CS</h1>
+            <p className="text-terminal-green-dim text-[11px] uppercase tracking-[0.2em] opacity-60">Join the community node network</p>
           </div>
           <div className="p-8 pb-10">
             <button
@@ -653,8 +658,8 @@ export default function App() {
               Kirinyaga CS requires a GitHub account to participate.
             </p>
           </div>
-        </motion.div>
-      </div>
+        </motion.div >
+      </div >
     );
   }
 
@@ -697,11 +702,11 @@ export default function App() {
                 animate={{ x: 0 }}
                 exit={{ x: "-100%" }}
                 transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                className="fixed inset-y-0 left-0 z-50 w-72 border-r border-terminal-green-dim/20 bg-terminal-bg flex flex-col pt-1 shadow-[10px_0_30px_rgba(0,0,0,0.5)] md:hidden"
+                className="fixed inset-y-0 left-0 z-50 w-72 border-r border-terminal-green-dim/20 bg-terminal-bg flex flex-col pt-1 shadow-terminal-side md:hidden"
               >
                 <div className="p-6 flex items-center gap-4 border-b border-terminal-green-dim/20 bg-terminal-green-dark/5">
-                  <div className="w-10 h-10 rounded-sm bg-terminal-green-dark border border-terminal-green flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(0,255,65,0.2)]">
-                    <Bot size={20} className="text-terminal-green" />
+                  <div className="w-10 h-10 rounded-sm bg-terminal-green-dark border border-terminal-green flex items-center justify-center shrink-0 shadow-terminal overflow-hidden">
+                    <img src="/icons/android-chrome-192x192.png" alt="Logo" className="w-7 h-7 grayscale" />
                   </div>
                   <div>
                     <h1 className="font-bold text-sm text-terminal-green leading-none tracking-tighter uppercase glow-text">Kirinyaga CS</h1>
@@ -733,8 +738,8 @@ export default function App() {
         {/* Desktop Sidebar */}
         <aside className="hidden md:flex w-72 border-r border-terminal-green-dim/20 bg-terminal-bg flex-col pt-1">
           <div className="p-6 flex items-center gap-4 border-b border-terminal-green-dim/20 bg-terminal-green-dark/5">
-            <div className="w-10 h-10 rounded-sm bg-terminal-green-dark border border-terminal-green flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(0,255,65,0.2)] animate-pulse">
-              <Bot size={20} className="text-terminal-green" />
+            <div className="w-10 h-10 rounded-sm bg-terminal-green-dark border border-terminal-green flex items-center justify-center shrink-0 shadow-terminal animate-pulse overflow-hidden">
+              <img src="/icons/android-chrome-192x192.png" alt="Logo" className="w-7 h-7 grayscale" />
             </div>
             <div>
               <h1 className="font-bold text-sm text-terminal-green leading-none tracking-tighter uppercase glow-text">Kirinyaga CS</h1>
@@ -879,7 +884,7 @@ export default function App() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95 }}
-                  className="absolute bottom-full left-6 right-6 mb-4 bg-terminal-bg border border-terminal-green-dim shadow-[0_0_20px_rgba(0,255,65,0.1)] overflow-hidden z-50 p-1 font-mono"
+                  className="absolute bottom-full left-6 right-6 mb-4 bg-terminal-bg border border-terminal-green-dim shadow-terminal-glow overflow-hidden z-50 p-1 font-mono"
                 >
                   <div className="px-4 py-2 border-b border-terminal-green-dim/30 flex items-center gap-2">
                     <Command size={14} className="text-terminal-green" />
@@ -918,7 +923,7 @@ export default function App() {
               onSubmit={handleSendMessage}
               className="flex items-end gap-3"
             >
-              <div className="flex-1 relative bg-terminal-green-dark/5 border border-terminal-green-dim/30 rounded-sm focus-within:border-terminal-green transition-all flex items-end shadow-[inset_0_0_10px_rgba(0,0,0,0.5)]">
+              <div className="flex-1 relative bg-terminal-green-dark/5 border border-terminal-green-dim/30 rounded-sm focus-within:border-terminal-green transition-all flex items-end shadow-terminal-inner">
                 <div className="pl-4 pb-3 text-terminal-green animate-pulse">
                   <ChevronRight size={18} />
                 </div>
@@ -950,7 +955,7 @@ export default function App() {
               </div>
               <div className="flex items-center gap-2 text-[10px] text-terminal-green-dim uppercase tracking-widest">
                 {isConnected ? (
-                  <><span className="w-1.5 h-1.5 bg-terminal-green shadow-[0_0_5px_var(--color-terminal-green)] anim-blink"></span> LINK_ESTABLISHED</>
+                  <><span className="w-1.5 h-1.5 bg-terminal-green shadow-terminal-green anim-blink"></span> LINK_ESTABLISHED</>
                 ) : (
                   <><span className="w-1.5 h-1.5 bg-red-600 shadow-[0_0_5px_#ff0000] anim-blink"></span> LINK_LOST</>
                 )}
@@ -968,7 +973,7 @@ export default function App() {
                   initial={{ opacity: 0, scale: 0.9, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                  className="w-full max-w-sm bg-terminal-bg border-2 border-terminal-green-dim shadow-[0_0_40px_rgba(0,255,65,0.2)] overflow-hidden font-mono"
+                  className="w-full max-w-sm bg-terminal-bg border-2 border-terminal-green-dim shadow-terminal-heavy overflow-hidden font-mono"
                 >
                   <div className="flex justify-between items-center p-4 border-b border-terminal-green-dim/30 bg-terminal-green-dark/10">
                     <span className="text-[10px] font-bold text-terminal-green uppercase tracking-[0.3em]">Node_Protocol_v3.1</span>
@@ -979,9 +984,9 @@ export default function App() {
                   <div className="p-8 flex flex-col items-center">
                     <div className="relative mb-6">
                       {profileUser?.avatarUrl ? (
-                        <img src={profileUser.avatarUrl} alt={`${profileUser.username}'s avatar`} className="w-32 h-32 rounded-sm border-2 border-terminal-green shadow-[0_0_15px_rgba(0,255,65,0.4)] object-cover grayscale brightness-110" referrerPolicy="no-referrer" />
+                        <img src={profileUser.avatarUrl} alt={`${profileUser.username}'s avatar`} className="w-32 h-32 rounded-sm border-2 border-terminal-green shadow-terminal-avatar object-cover grayscale brightness-110" referrerPolicy="no-referrer" />
                       ) : (
-                        <div className="w-32 h-32 rounded-sm bg-terminal-green-dark flex items-center justify-center text-terminal-green border-2 border-terminal-green shadow-[0_0_15px_rgba(0,255,65,0.4)]">
+                        <div className="w-32 h-32 rounded-sm bg-terminal-green-dark flex items-center justify-center text-terminal-green border-2 border-terminal-green shadow-terminal-avatar">
                           <UserIcon size={64} />
                         </div>
                       )}
@@ -995,8 +1000,8 @@ export default function App() {
                     <div className="flex items-center gap-3 mt-4">
                       <div className={cn(
                         "w-2.5 h-2.5 rounded-full anim-blink",
-                        profileUser?.status === 'online' ? "bg-terminal-green shadow-[0_0_8px_var(--color-terminal-green)]" :
-                          profileUser?.status === 'away' ? "bg-terminal-amber shadow-[0_0_8px_var(--color-terminal-amber)]" : "bg-terminal-green-dark"
+                        profileUser?.status === 'online' ? "bg-terminal-green shadow-terminal-green" :
+                          profileUser?.status === 'away' ? "bg-terminal-amber shadow-terminal-amber" : "bg-terminal-green-dark"
                       )} />
                       <span className="text-xs text-terminal-green font-bold uppercase tracking-widest">{profileUser?.status || 'Offline'}</span>
                     </div>
