@@ -1,5 +1,4 @@
 import express from "express";
-import { createServer as createViteServer } from "vite";
 import mongoose from "mongoose";
 import { v4 as uuidv4 } from "uuid";
 import * as path from "path";
@@ -524,19 +523,10 @@ async function startServer() {
     });
   });
 
-  // Vite middleware for development
-  if (process.env.NODE_ENV !== "production") {
-    const vite = await createViteServer({
-      server: { middlewareMode: true },
-      appType: "spa",
-    });
-    app.use(vite.middlewares);
-  } else {
-    app.use(express.static(path.join(__dirname, "dist")));
-    app.get("*", (req, res) => {
-      res.sendFile(path.join(__dirname, "dist", "index.html"));
-    });
-  }
+  // Pure API/WS Server - Static serving handled by Netlify frontend
+  app.get("/", (req, res) => {
+    res.json({ status: "online", service: "Kirinyaga CS API" });
+  });
 
   httpServer.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on http://localhost:${PORT}`);
