@@ -262,7 +262,8 @@ export default function App() {
   useEffect(() => {
     const handleOAuthMessage = (event: MessageEvent) => {
       const origin = event.origin;
-      if (!origin.endsWith('.run.app') && !origin.includes('localhost')) return;
+      const expectedOrigin = import.meta.env.VITE_API_BASE_URL ? new URL(import.meta.env.VITE_API_BASE_URL).origin : '';
+      if (!origin.endsWith('.run.app') && !origin.includes('localhost') && origin !== expectedOrigin && !origin.endsWith('.onrender.com')) return;
 
       if (event.data?.type === 'OAUTH_AUTH_SUCCESS') {
         const user = event.data.user;
